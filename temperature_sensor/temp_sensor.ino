@@ -73,8 +73,8 @@ void postData(float temperature, float humidity)
   HTTPClient http;
   http.useHTTP10(true);
 
-//  Serial.print("[HTTP] begin...\n");
-  http.begin("http://10.15.30.187:5000/temperature"); //HTTP
+  Serial.print("[HTTP] begin...\n");
+  http.begin("http://mail.arlininger.com:5000/temperature"); //HTTP
   http.addHeader("Content-Type", "application/json");
 
 //  Serial.print("[HTTP] GET...\n");
@@ -122,7 +122,7 @@ void postData(float temperature, float humidity)
 unsigned long getTime()
 {
   timeClient.update();
-//  Serial.println(timeClient.getFormattedTime());
+  Serial.println(timeClient.getFormattedTime());
   return timeClient.getEpochTime();
 }
 
@@ -133,7 +133,7 @@ void loop() {
   float humidity = dht.readHumidity();
   float temperature = dht.readTemperature(Farenheit);
 
-  tft.fillScreen(TFT_GREEN);
+  tft.fillScreen(TFT_BLACK);
   tft.setCursor(0, 0, 4);
 
   tft.setTextColor(TFT_RED, TFT_BLACK);

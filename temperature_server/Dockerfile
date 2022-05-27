@@ -8,7 +8,7 @@ WORKDIR ${PROJECT_DIR}
 
 COPY Pipfile .
 COPY Pipfile.lock .
-COPY . .
+# COPY . .
 
 RUN pipenv install --deploy --ignore-pipfile
 
